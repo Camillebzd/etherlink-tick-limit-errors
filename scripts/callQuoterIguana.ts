@@ -195,7 +195,8 @@ async function sendTransaction() {
   ]
   console.log("Number of iteration:", param.length);
   // real transaction (not a gas estimation or simulation call)
-  const tx = await contract.multicallWithGasLimitation(param, 12000000n);
+  const tx = await contract.multicallWithGasLimitation.staticCall(param, 12000000n);
+  console.log("Transaction:\n", tx);
   console.log("--- call done ---");
 }
 
